@@ -79,6 +79,7 @@ fun ProfileScreen() {
                     .height(60.dp)
                     .width(200.dp)
             ) {
+
                 Text(
                     text = "Edit Profile",
                     fontSize = 20.sp
