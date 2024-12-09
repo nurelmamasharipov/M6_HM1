@@ -4,14 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -33,25 +36,26 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @Composable
 fun ProfileScreen() {
-    Scaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
                 .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
+
             Image(
-                painter = painterResource(id = R.drawable.img),
+                painter = painterResource(R.drawable.img),
                 contentDescription = "Profile Picture",
                 modifier = Modifier
-                    .size(200.dp)
-                    .padding(bottom = 32.dp),
-                contentScale = ContentScale.Crop
+                    .height(200.dp)
+                    .width(200.dp)
+                    .padding(bottom = 32.dp)
+                    .clip(RoundedCornerShape(50))
             )
 
             Text(
@@ -79,14 +83,12 @@ fun ProfileScreen() {
                     .height(60.dp)
                     .width(200.dp)
             ) {
-
                 Text(
                     text = "Edit Profile",
-                    fontSize = 20.sp
+                    fontSize = 20.sp  
                 )
             }
         }
-    }
 }
 
 @Preview(showBackground = true)
